@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Math.random()生成[0,1)的double 概率是相同的
  * 题目1.已知一个函数x可以生成一个[a,b]的int 概率相同 求生成[c,d]的int 概率相同的函数y
  * 题目2.已知一个函数x1可以生成一个[0,1]的int 概率不同 生成0概率为p  生成1概率为1-p 求一个函数生成[0,1]概率相同的函数y1
- *  题2解:可以使用2次函数x2 第一次生成0第二次生成1返回 第一次生成0第二次生成1返回
+ * 题2解:可以使用2次函数x2 第一次生成0第二次生成1返回 第一次生成0第二次生成1返回
  */
 public class EqualProbabilityRandom {
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class EqualProbabilityRandom {
             if (res > 7 || res < 1) {
                 System.out.println("算法有问题 res is " + res);
             }
-            arr[res-1]++;
+            arr[res - 1]++;
         }
 
         int[] arr2 = new int[2];
@@ -35,14 +35,15 @@ public class EqualProbabilityRandom {
      * 1 1 概率为0.2 * 0.2
      * 0 1 概率为0.8 * 0.2
      * 1 0 概率为0.2 * 0.8
-     * @return 生成[0,1]概率相同的函数y1
+     *
+     * @return 生成[0, 1]概率相同的函数y1
      */
-    public static int y2(){
+    public static int y2() {
         RandomBox randomBox = new RandomBox(0.8);
         int num;
-        do{
+        do {
             num = randomBox.x2();
-        }while (num == randomBox.x2());
+        } while (num == randomBox.x2());
         return num;
     }
 
@@ -94,14 +95,17 @@ public class EqualProbabilityRandom {
 
 
 }
-    class RandomBox{
-        private final double p;
-        public RandomBox(double p){
-            this.p=p;
-        }
-        public int x2(){
-            return Math.random()<p?0:1;
-        }
+
+class RandomBox {
+    private final double p;
+
+    public RandomBox(double p) {
+        this.p = p;
+    }
+
+    public int x2() {
+        return Math.random() < p ? 0 : 1;
+    }
 
 
-        }
+}

@@ -57,8 +57,8 @@ public class Code04_BSAwesome {
 		}
 		int left = minIndex - 1;
 		int right = minIndex + 1;
-		boolean leftBigger = left >= 0 ? arr[left] > arr[minIndex] : true;
-		boolean rightBigger = right < arr.length ? arr[right] > arr[minIndex] : true;
+		boolean leftBigger = left < 0 || arr[left] > arr[minIndex];
+		boolean rightBigger = right >= arr.length || arr[right] > arr[minIndex];
 		return leftBigger && rightBigger;
 	}
 
